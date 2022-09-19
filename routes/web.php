@@ -29,6 +29,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::put('admin/product/', [ProductController::class, 'add_product_process']);
     Route::delete('admin/product/{id}', [ProductController::class, 'delete']);
 
+    Route::get('admin/pos', [PosController::class, 'index']);
+    Route::get('admin/search', [PosController::class, 'search'])->name('admin.search');
+    Route::post('admin/add-to-cart', [PosController::class, 'addToCart'])->name('add_to_cart');
+    Route::post('admin/checkout', [PosController::class, 'checkoutOrder']);
+    Route::get('admin/delete/{id}', [PosController::class, 'delete']);
+
     Route::get('admin/logout', function () {
         session()->forget('ADMIN_LOGIN');
         session()->forget('ADMIN_ID');
