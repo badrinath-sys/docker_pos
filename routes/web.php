@@ -29,4 +29,11 @@ Route::group(['middleware' => 'admin'], function () {
     Route::put('admin/product/', [ProductController::class, 'add_product_process']);
     Route::delete('admin/product/{id}', [ProductController::class, 'delete']);
 
+    Route::get('admin/logout', function () {
+        session()->forget('ADMIN_LOGIN');
+        session()->forget('ADMIN_ID');
+        session()->flash('success', 'Logout sucessfully');
+        return redirect('admin');
+    });
+
 });
