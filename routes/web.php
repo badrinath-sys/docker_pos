@@ -20,3 +20,13 @@ Route::get('/', function () {
 
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');
+
+Route::group(['middleware' => 'admin'], function () {
+
+    Route::get('admin/product', [ProductController::class, 'index']);
+    Route::get('admin/product/add_product', [ProductController::class, 'add_product']);
+    Route::get('admin/product/{id}', [ProductController::class, 'add_product']);
+    Route::put('admin/product/', [ProductController::class, 'add_product_process']);
+    Route::delete('admin/product/{id}', [ProductController::class, 'delete']);
+
+});
