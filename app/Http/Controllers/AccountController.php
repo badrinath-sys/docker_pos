@@ -15,7 +15,7 @@ class AccountController extends Controller
         $result['data'] = Admin::where(['id' => $id])->first();
         return view('admin/account', $result);
     }
-
+    
     public function UpdatePassword(Request $request)
     {
         $id = session()->get('ADMIN_ID');

@@ -1,0 +1,1 @@
+<h3>Your otp is </h3> <h1>{{$email_data['otp']}}</h1>
