@@ -17,6 +17,7 @@
     </style>
 </head>
 
+
 <body>
 
     <a href="" class="btn w-full btn-primary text-truncate rounded-0 py-2 border-0 position-relative"
@@ -104,7 +105,7 @@
                                 <div class="mx-n1">
                                     <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
                                         <span class=" pe-2"></span>
-                                        <span>Admin</span>
+                                        <span>{{Session::get('role')}}</span>
                                     </a>
                                 </div>
                             </div>

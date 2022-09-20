@@ -39,7 +39,7 @@ $image_required="required";
                             </div>
                             <div class="form-group">
                                 <label for="image" class="control-label mb-1"> Image</label>
-                                <input id="image" name="image" type="file" class="form-control" aria-required="true"
+                                <input id="image"  value="{{$image}}" name="image" type="file" class="form-control" aria-required="true"
                                     aria-invalid="false" {{$image_required}}>
                                 @error('image')
                                 <div class="alert alert-danger" role="alert">

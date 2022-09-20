@@ -18,6 +18,10 @@ class OtpSendController extends Controller
             'otp' => mt_rand(10000, 99999),
         ];
 
+        $request->validate([
+                  'email' => 'required|email',
+            ]);
+
         $id = session()->get('ADMIN_ID');
         $result = Admin::where(['id' => $id])->first();
         $result->otp = $data['otp'];

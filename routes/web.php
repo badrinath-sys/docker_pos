@@ -49,6 +49,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/order/search', [OrderController::class, 'search'])->name('admin.order_search');
 
     Route::get('admin/dashboard', [DashboardController::class, 'totalSales']);
+    Route::get('admin/dashboard', [DashboardController::class, 'totalSales']);
 
     Route::get('admin/account', [AccountController::class, 'index']);
     Route::put('admin/update/password', [AccountController::class, 'UpdatePassword']);

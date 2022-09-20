@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $result['data'] = Product::all();
-        return view('admin/product', $result);
+        $role = Session::get('role');
+        if ($role == 'Admin') {
+            $result['data'] = Product::all();
+            return view('admin/product', $result);
+        } else {
+            return redirect('admin/dashboard');
+        }
     }
 
     public function add_product(Request $request, $id = '')
@@ -42,6 +48,8 @@ class ProductController extends Controller
 
         $request->validate([
             'product_name' => 'required',
+            'barcode' => 'required|numeric',
+            'price' => 'required|numeric',
             'quantiy' => 'required' . $request->post('id'),
         ]);
 

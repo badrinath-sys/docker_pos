@@ -1,5 +1,8 @@
 @extends('admin/layout')
 @section('container')
+@if(Session::has('message3'))
+<p class="alert alert-info">{{ Session::get('message3') }}</p>
+@endif
 
 <main class="py-6 bg-surface-secondary">
     <div class="container-fluid">

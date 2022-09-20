@@ -16,24 +16,46 @@ class AdminController extends Controller
     public function index(Request $request)
     {
         if ($request->session()->has('ADMIN_LOGIN')) {
-            return redirect('admin/dashboard');
+            $role = session()->get('role');
+            if ($role == 1) {
+                return redirect('admin/dashboard');
+            } else {
+                return redirect('admin/dashboard');
+
+            }
+
         } else {
             return view('admin.login');
         }
-        dd($data['password'] = Hash::make('pallam'));
         return view('admin.login');
     }
 
     public function auth(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email:rfc,dns|unique:users',
+            'password' => 'required|min:6',
+        ]);
+
         $email = $request->post('email');
         $password = $request->post('password');
         $result = Admin::where(['email' => $email])->first();
         if ($result) {
             if (Hash::check($password, $result->password)) {
-                $request->session()->put('ADMIN_LOGIN', true);
-                $request->session()->put('ADMIN_ID', $result->id);
-                return redirect('admin/dashboard');
+                if ($result->role == 'Admin') {
+                    $request->session()->put('ADMIN_LOGIN', true);
+                    $request->session()->put('ADMIN_ID', $result->id);
+                    $request->session()->put('role', 'Admin');
+
+                    return redirect('admin/dashboard')->with('message3', 'Your are Admin');
+                } else {
+                    $request->session()->put('ADMIN_LOGIN', true);
+                    $request->session()->put('ADMIN_ID', $result->id);
+                    $request->session()->put('role', 'staff');
+
+                    return redirect('admin/dashboard')->with('message3', 'You areStaff');
+                }
+
             } else {
                 $request->session()->flash('error', 'Please enter correct password');
                 return redirect('admin');
