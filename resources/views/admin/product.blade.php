@@ -6,12 +6,15 @@
 <p class="alert alert-info">{{ Session::get('message') }}</p>
 @endif
 
+
 <br>
+@if(Session('role')=='Admin')
 <a href="product/add_product">
     <button type="button" class="btn btn-success btn btn-primary btn-sm">
-        Add product
+        Add product 
     </button>
 </a>
+@endif
 <br>
 <div class="row m-t-30">
     <div class="col-md-12">
@@ -27,7 +30,9 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Status</th>
+                                    @if(Session('role')=='Admin')
                                     <th scope="col">Action</th>
+                                    @endif
                                     
                                 </tr>
                 </thead>
@@ -54,6 +59,7 @@
                          <button type="button" class="btn btn-warning btn btn-primary btn-sm">Out of Stack</button>
                         @endif
                         </td>
+                        @if(Session('role')=='Admin')
                         <td>
                         <div class="btn-group">
                              <form action="{{url('admin/product/')}}/{{$list->id}}" method="post">
@@ -65,6 +71,7 @@
                             <button type="submit" class="btn btn-success btn btn-primary btn-sm mb-2 mr-2">Edit</button></form>
                             </div>
                         </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>

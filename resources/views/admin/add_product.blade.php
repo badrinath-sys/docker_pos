@@ -26,7 +26,7 @@ $image_required="required";
                     <div class="card-body">
                         <form action="{{url( 'admin/product/')}}" method="post"
                             enctype="multipart/form-data">
-                            @csrf @method('PUT')
+                            @csrf 
                             <div class="form-group">
                                 <label for="product_name" class="control-label mb-1">Product Name</label>
                                 <input id="product_name" value="{{$product_name}}" name="product_name" type="text"

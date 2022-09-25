@@ -51,9 +51,9 @@ class AdminController extends Controller
                 } else {
                     $request->session()->put('ADMIN_LOGIN', true);
                     $request->session()->put('ADMIN_ID', $result->id);
-                    $request->session()->put('role', 'staff');
+                    $request->session()->put('role', 'Staff');
 
-                    return redirect('admin/dashboard')->with('message3', 'You areStaff');
+                    return redirect('admin/dashboard')->with('message3', 'You are Staff');
                 }
 
             } else {

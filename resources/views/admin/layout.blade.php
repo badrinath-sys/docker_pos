@@ -20,10 +20,7 @@
 
 <body>
 
-    <a href="" class="btn w-full btn-primary text-truncate rounded-0 py-2 border-0 position-relative"
-        style="z-index: 10;">
-        <strong>DASHBOARD</strong>
-    </a>
+ 
 
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
 
@@ -99,16 +96,21 @@
                     <div class="mb-npx">
                         <div class="row align-items-center">
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
-                                <h1 class="h2 mb-6 ls-tight">Point of Sale Dashboard</h1>
+                                <h1 class="h2 mb-6 ls-tight text-xl">Point of Sale Dashboard</h1>
                             </div>
-                            <div class="col-sm-6 col-12 text-sm-end mb-6">
-                                <div class="mx-n1">
-                                    <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                                        <span class=" pe-2"></span>
-                                        <span>{{Session::get('role')}}</span>
-                                    </a>
-                                </div>
+                           <div class="col-sm-6 col-12 text-sm-end mb-4">
+
+ <div class="mx-n1">
+
+<button class="bg-primary  text-white font-bold py-1 px-3 mx-1 rounded">
+
+      {{Session::get('role')}}
+
+  </button>
+
                             </div>
+
+                        </div>
                         </div>
 
 
