@@ -32,7 +32,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/product', [ProductController::class, 'index']);
     Route::get('admin/product/add_product', [ProductController::class, 'add_product']);
     Route::get('admin/product/{id}', [ProductController::class, 'add_product']);
-    Route::put('admin/product/', [ProductController::class, 'add_product_process']);
+    Route::post('admin/product/', [ProductController::class, 'add_product_process']);
     Route::delete('admin/product/{id}', [ProductController::class, 'delete']);
 
     Route::get('admin/pos', [PosController::class, 'index']);
@@ -48,7 +48,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/order/delete/{id}', [OrderController::class, 'delete']);
     Route::get('admin/order/search', [OrderController::class, 'search'])->name('admin.order_search');
 
-    Route::get('admin/dashboard', [DashboardController::class, 'totalSales']);
     Route::get('admin/dashboard', [DashboardController::class, 'totalSales']);
 
     Route::get('admin/account', [AccountController::class, 'index']);

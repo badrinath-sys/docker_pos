@@ -4,6 +4,10 @@
 <p class="alert alert-info">{{ Session::get('message3') }}</p>
 @endif
 
+@if(Session::has('message'))
+<p class="alert alert-info">{{ Session::get('message') }}</p>
+@endif
+
 <main class="py-6 bg-surface-secondary">
     <div class="container-fluid">
 

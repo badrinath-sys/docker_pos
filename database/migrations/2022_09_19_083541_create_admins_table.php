@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->bigInteger('otp');
+            $table->string('role');
             $table->timestamps();
 
         });

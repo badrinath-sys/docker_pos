@@ -12,14 +12,9 @@ class AccountController extends Controller
     public function index()
     {
         $id = session()->get('ADMIN_ID');
-        $role = Session::get('role');
+        $result['data'] = Admin::where(['id' => $id])->first();
+        return view('admin/account', $result);
 
-        if ($role == 'Admin') {
-            $result['data'] = Admin::where(['id' => $id])->first();
-            return view('admin/account', $result);
-        } else {
-            return redirect('admin/dashboard');
-        }
     }
 
     public function UpdatePassword(Request $request)

@@ -12,35 +12,37 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $role = Session::get('role');
-        if ($role == 'Admin') {
-            $result['data'] = Product::all();
-            return view('admin/product', $result);
-        } else {
-            return redirect('admin/dashboard');
-        }
+        $result['data'] = Product::all();
+        return view('admin/product', $result);
     }
 
     public function add_product(Request $request, $id = '')
     {
-        if ($id > 0) {
-            $arr = Product::where(['id' => $id])->get();
+        $role = Session::get('role');
+        if ($role == 'Admin') {
+            if ($id > 0) {
+                $arr = Product::where(['id' => $id])->get();
 
-            $result['product_name'] = $arr['0']->product_name;
-            $result['image'] = $arr['0']->image;
-            $result['barcode'] = $arr['0']->barcode;
-            $result['price'] = $arr['0']->price;
-            $result['quantity'] = $arr['0']->quantity;
-            $result['id'] = $arr['0']->id;
+                $result['product_name'] = $arr['0']->product_name;
+                $result['image'] = $arr['0']->image;
+                $result['barcode'] = $arr['0']->barcode;
+                $result['price'] = $arr['0']->price;
+                $result['quantity'] = $arr['0']->quantity;
+                $result['id'] = $arr['0']->id;
+            } else {
+                $result['product_name'] = '';
+                $result['image'] = '';
+                $result['barcode'] = '';
+                $result['price'] = '';
+                $result['quantity'] = '';
+                $result['id'] = 0;
+            }
+            return view('admin/add_product', $result);
         } else {
-            $result['product_name'] = '';
-            $result['image'] = '';
-            $result['barcode'] = '';
-            $result['price'] = '';
-            $result['quantity'] = '';
-            $result['id'] = 0;
+            return redirect('admin/product')->with('message', 'You do not have right to access this page');
+
         }
-        return view('admin/add_product', $result);
+
     }
 
     public function add_product_process(Request $request)
@@ -50,7 +52,7 @@ class ProductController extends Controller
             'product_name' => 'required',
             'barcode' => 'required|numeric',
             'price' => 'required|numeric',
-            'quantiy' => 'required' . $request->post('id'),
+            'quantity' => 'required',
         ]);
 
         if ($request->post('id') > 0) {
@@ -91,10 +93,16 @@ class ProductController extends Controller
 
     public function delete(Request $request, $id)
     {
-        $model = Product::find($id);
-        $model->delete();
-        $request->session()->flash('message', 'product deleted');
-        return redirect('admin/product');
+        $role = Session::get('role');
+        if ($role == 'Admin') {
+            $model = Product::find($id);
+            $model->delete();
+            $request->session()->flash('message', 'product deleted');
+            return redirect('admin/product');
+        } else {
+            return redirect('admin/product')->with('message', 'You do not have right to access this page');
+        }
+
     }
 
 }
