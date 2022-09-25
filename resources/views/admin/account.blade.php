@@ -1,9 +1,6 @@
  @extends('admin/layout') @section('container')
 
  
-
-
- 
 @if(Session::has('message'))
 <p class="alert alert-info">{{ Session::get('message') }}</p>
 @endif
@@ -177,3 +174,10 @@ function toggleModal2() {
 }
 </script>
 
+@if(!empty(Session::get('message')) && Session::get('message') == 5)
+<script>
+function toggleModal2() {
+    document.getElementById('mymodal').classList.toggle('hidden')
+}
+</script>
+@endif
