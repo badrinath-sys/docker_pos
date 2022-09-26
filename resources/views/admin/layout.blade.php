@@ -102,7 +102,7 @@
 
  <div class="mx-n1">
 
-<button class=" border-2 border-solid border-gray-100  text-primary font-bold py-1 px-3 mx-1 rounded-full">
+<button class=" border-2 border-solid border-blue-500  text-primary font-bold py-1 px-3 mx-1 rounded-full">
 
       {{Session::get('role')}}
 

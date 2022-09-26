@@ -12,10 +12,15 @@ $image_required="required";
 @endphp
 @endif
 
-<h1 class="mb10">Manage Product</h1>
+<h4 class="mb-4 mt-4">Manage Product</h4>
 <a href="{{url('admin/product')}}">
-    <button type="button" class="btn btn-success">
-        Back
+    <button type="button" class=" text-white bg-primary btn-sm  mb-4 ">
+       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+</svg>
+
+
+
     </button>
 </a>
 <div class="row m-t-30">
@@ -28,9 +33,9 @@ $image_required="required";
                             enctype="multipart/form-data">
                             @csrf 
                             <div class="form-group">
-                                <label for="product_name" class="control-label mb-1">Product Name</label>
+                                <label for="product_name" class="control-label mb-2">Product Name</label>
                                 <input id="product_name" value="{{$product_name}}" name="product_name" type="text"
-                                    class="form-control" aria-required="true" aria-invalid="false" required>
+                                    class="form-control mb-4" aria-required="true" aria-invalid="false" required>
                                 @error('product_name')
                                 <div class="alert alert-danger" role="alert">
                                     {{$message}}
@@ -38,8 +43,8 @@ $image_required="required";
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="image" class="control-label mb-1"> Image</label>
-                                <input id="image"  value="{{$image}}" name="image" type="file" class="form-control" aria-required="true"
+                                <label for="image" class="control-label mb-2"> Image</label>
+                                <input id="image"  value="{{$image}}" name="image" type="file" class="form-control mb-4" aria-required="true"
                                     aria-invalid="false" {{$image_required}}>
                                 @error('image')
                                 <div class="alert alert-danger" role="alert">
@@ -52,8 +57,8 @@ $image_required="required";
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="barcode" class="control-label mb-1"> Barcode</label>
-                                <input id="barcode" value="{{$barcode}}" name="barcode" type="text" class="form-control"
+                                <label for="barcode" class="control-label mb-2"> Barcode</label>
+                                <input id="barcode" value="{{$barcode}}" name="barcode" type="text" class="form-control mb-4"
                                     aria-required="true" aria-invalid="false" required>
                                 @error('barcode')
                                 <div class="alert alert-danger" role="alert">
@@ -62,8 +67,8 @@ $image_required="required";
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="price" class="control-label mb-1"> Price</label>
-                                <input id="price" value="{{$price}}" name="price" type="text" class="form-control"
+                                <label for="price" class="control-label mb-2"> Price</label>
+                                <input id="price" value="{{$price}}" name="price" type="text" class="form-control mb-4"
                                     aria-required="true" aria-invalid="false" required>
                                 @error('price')
                                 <div class="alert alert-danger" role="alert">
@@ -72,9 +77,9 @@ $image_required="required";
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="quantity" class="control-label mb-1"> Quantity</label>
+                                <label for="quantity" class="control-label mb-2"> Quantity</label>
                                 <input id="quantity" value="{{$quantity}}" name="quantity" type="text"
-                                    class="form-control" aria-required="true" aria-invalid="false" required>
+                                    class="form-control " aria-required="true" aria-invalid="false" required>
                                 @error('quantity')
                                 <div class="alert alert-danger" role="alert">
                                     {{$message}}
@@ -83,9 +88,8 @@ $image_required="required";
                             </div>
                             <div>
                                 <br>
-                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block btn btn-primary btn-sm ">
-                                    Submit
-                                </button>
+                                
+                                <button id="payment-button" type="submit" class="py-2 px-4 bg-primary text-white rounded  " >Submit</button>
                             </div>
                             <input type="hidden" name="id" value="{{$id}}" />
                         </form>

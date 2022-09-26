@@ -7,20 +7,23 @@
 @endif
 
 
-<br>
-@if(Session('role')=='Admin')
-<a href="product/add_product">
-    <button type="button" class="btn btn-success btn btn-primary btn-sm ">
-        Add product 
-    </button>
-</a>
-@endif
+
+
 
 <main class="py-6 bg-surface-secondary">
             <div class="container-fluid">
                 <div class="card shadow border-0 mb-7">
                     <div class="card-header">
-                        <h5 class="mb-0">PRODUCTS</h5>
+                        <h5 class="mb-0">PRODUCTS<span class="pl-4">
+                        @if(Session('role')=='Admin')
+<a href="product/add_product">
+    <button type="button" class=" btn-primary bg-primary btn-sm ">
+        Add 
+    </button>
+</a>
+</span>
+</h5>
+@endif
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover table-nowrap">
@@ -67,7 +70,7 @@
                         <td>
                         <div class="btn-group">
                              <form action="{{url('admin/product/')}}/{{$list->id}}" method="post">
-                              @csrf @method('DELETE')
+                              @csrf @method('POST')
                               <a href="#" class="text-sm text-blue-500  ">Edit</a>
                             </form>
                               <form action="{{url('admin/product/')}}/{{$list->id}}" method="post">
@@ -86,7 +89,7 @@
                 </tbody>
             </table>
         </div>
-        <!-- END DATA TABLE-->
+       
     </div>
 </div>
 </main>
