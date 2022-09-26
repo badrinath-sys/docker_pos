@@ -23,9 +23,9 @@
                                                  <th scope="col">S.No</th>
                                                  <th scope="col">Name</th>
                                                  <th scope="col">Mobile Number</th>
-                                                 <th scope="col">Create</th>
+                                                 <th scope="col">Created at</th>
 
-                                                 <th scope="col">Update</th>
+                                                 <th scope="col">Updated at</th>
                                                  <th scope="col">Action</th>
 
                                                  <th></th>

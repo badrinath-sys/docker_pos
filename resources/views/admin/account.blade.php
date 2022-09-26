@@ -120,7 +120,7 @@
                                              <h2 class="border-b border-blue-100 py-2 text-gray-500 font-semibold">
                                                  Change
                                                  Password </h2>
-                                             <p class="text-green-500 text-sm  mt-4 mb-4">Creat a new Secure password.
+                                             <p class="text-green-500 text-sm  mt-4 mb-4">Create a new Secure password.
                                              </p>
 
                                              <h2 Class=" text-gray-500 font-semibold text-sm ">Current Password</h2>
@@ -174,10 +174,3 @@ function toggleModal2() {
 }
 </script>
 
-@if(!empty(Session::get('message')) && Session::get('message') == 5)
-<script>
-function toggleModal2() {
-    document.getElementById('mymodal').classList.toggle('hidden')
-}
-</script>
-@endif

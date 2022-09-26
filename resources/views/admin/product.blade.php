@@ -56,7 +56,7 @@
                            @if($list['status']==1)
                            <button type="button" class="btn btn-primary btn btn-primary btn-sm">In Stock</button>
                           @elseif($list['status']==0)
-                         <button type="button" class="btn btn-warning btn btn-primary btn-sm">Out of Stack</button>
+                         <button type="button" class="btn btn-warning btn btn-primary btn-sm">Out of Stock</button>
                         @endif
                         </td>
                         @if(Session('role')=='Admin')
