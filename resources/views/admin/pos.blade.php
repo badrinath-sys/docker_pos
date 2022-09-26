@@ -24,8 +24,9 @@
                             <div class="col">
                                 <form action="{{ route('add_to_cart') }}" method="post"> {{ csrf_field() }}
                                     <div class="card-header">
+                                   
                                         <input class="shadow appearance-none border rounded lg:w-56 md:w-44  py-2 px-3 text-gray-700 mb-2 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Bar Code" name="barcode">
-                                        <button class="bg-primary  text-white font-bold py-1 px-3 rounded"> Add
+                                        <button class="btn-primary bg-primary btn-sm"> Add
                                         </button>
                                     </div>
                                 </form>
@@ -82,7 +83,7 @@
                                 <div class="flex  justify-end mb-4 ">
                                     <button class="py-2 px-4 bg-primary text-white rounded mr-3 " onclick="toggleModal()">Submit</button>
                                     <a href="{{url('admin/remove')}}">
-                                        <button class="bg-secondary  text-neutral font-medium py-2 px-4  rounded">
+                                        <button class="bg-gray-200 text-gray-500 font-normal hover:bg-gray-300 py-2 px-4  rounded">
                                             Cancel </button>
                                     </a>
                                 </div>
@@ -122,8 +123,8 @@
                                                         <option value="Cash">Cash</option>
                                                     </select>
                                                 </div>
-                                                <div class="bg-gray-200 px-4 py-3 text-right">
-                                                    <button type="button" class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2" onclick="toggleModal()"><i class="fas fa-times"></i>
+                                                <div class="px-4 py-3 text-right">
+                                                    <button type="button" class="py-2 px-4 bg-gray-200  rounded hover:bg-gray-400 mr-2" onclick="toggleModal()"><i class="fas fa-times"></i>
                                                         Cancel</button>
                                                     <button type="submit" name="submit" class="py-2 px-4 bg-primary text-white rounded hover:bg-blue-700 mr-2">
                                                         </i> Submit</button>
