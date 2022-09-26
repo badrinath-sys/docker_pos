@@ -96,17 +96,17 @@
                     <div class="mb-npx">
                         <div class="row align-items-center">
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
-                                <h1 class="h2 mb-6 ls-tight text-xl">Point of Sale Dashboard</h1>
+                                <h1 class="h2 mb-6 ls-tight text-lg">Point of Sale Dashboard</h1>
                             </div>
                            <div class="col-sm-6 col-12 text-sm-end mb-4">
 
  <div class="mx-n1">
 
-<button class="bg-primary  text-white font-bold py-1 px-3 mx-1 rounded">
+<button class=" border-2 border-solid border-gray-100  text-primary font-bold py-1 px-3 mx-1 rounded-full">
 
       {{Session::get('role')}}
 
-  </button>
+</button>
 
                             </div>
 
