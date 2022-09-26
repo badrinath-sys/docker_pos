@@ -17,7 +17,6 @@
                          <div class="card-body  mb-2">
 
                              <div class='flex items-center px-2 py-3'>
-
                                  <div class="w-full max-w-sm">
                                      <center>
                                          <div class="overflow-hidden relative w-20 h-20 bg-gray-100 rounded-full  ">
@@ -120,86 +119,41 @@
                                              {{ csrf_field() }}@method('put')
                                              <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 
-                                                 <h2
-                                                     class="border-b border-blue-100 py-2 text-gray-500 font-semibold text-lg">
-                                                     Change Password </h2>
-                                                 <p class="text-green-500   mt-2 mb-2 text-xs">Create a new Secure password.
+                                                 <h2 class="border-b border-blue-100 py-2 text-gray-500 font-semibold">
+                                                     Change
+                                                     Password </h2>
+                                                 <p class="text-green-500 text-sm  mt-4 mb-4">Creat a new Secure password.
                                                  </p>
-                                                 <h2 Class=" text-gray-500 font-semibold text-xs ">New Password</h2>
 
-                                                 <input type="password"
-                                                     class="w-4/5 bg-gray-100  mt-2 mb-2 border border-solid border-gray-300 rounded " />
-                                                 <h2 Class=" text-gray-500 font-semibold text-xs ">Repeat Password</h2>
+                                                 <h2 Class=" text-gray-500 font-semibold text-sm ">Current Password</h2>
 
-                                                 <input type="password"
-                                                     class="w-4/5 bg-gray-100  mt-2  border border-solid border-gray-300 rounded " />
+                                                 <input type="password" name='old_password'
+                                                     class="w-3/4 bg-gray-100 p-2 mt-2 mb-3 border border-solid border-gray-300 rounded "
+                                                     required />
+                                                 <h2 Class=" text-gray-500 font-semibold text-sm ">New Password</h2>
+
+                                                 <input type="password" name='new_password'
+                                                     class="w-3/4 bg-gray-100 p-2 mt-2 mb-3 border border-solid border-gray-300 rounded "
+                                                     required />
 
                                              </div>
-                                             <div class=" flex item-center justify-start px-4 py-3 text-right -mt-4">
+                                             <div class=" flex item-center justify-center bg-gray-200 px-4 py-3 text-right">
 
-                                                 <button type="button"
-                                                     class="pt-1 pb-1 pl-4 pr-4 bg-primary text-white text-xs font-semibold rounded hover:bg-blue-700  "
-                                                     onclick="toggleModal2()"></i> Submit</button>
+                                                 <button type="submit"
+                                                     class="py-2 px-4 bg-primary text-white rounded hover:bg-blue-700 mr-2"
+                                                     onclick="toggleModal2()"></i>
+                                                     Submit</button>
                                              </div>
+                                         </form>
                                      </div>
                                  </div>
                              </div>
 
-                             </form>
-
                          </div>
-
-                         <div class="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden" id="mymodal">
-                             <div
-                                 class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                                 <div class="fixed inset-0 transition-opacity">
-                                     <div class="absolute inset-0 bg-gray-900 opacity-75" />
-                                 </div>
-                                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
-                                 <div class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-                                     role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                                     <form action="{{ url('admin/update/password') }}" method="post">
-                                         {{ csrf_field() }}@method('put')
-                                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-
-                                             <h2 class="border-b border-blue-100 py-2 text-gray-500 font-semibold text-lg">
-                                                 Change Password </h2>
-                                             <p class="text-green-500   mt-2 mb-2 text-xs">Create a new Secure password.
-                                             </p>
-                                             <h2 Class=" text-gray-500 font-semibold text-xs ">New Password</h2>
-
-                                             <input type="password"
-                                                 class="w-4/5 bg-gray-100  mt-2 mb-2 border border-solid border-gray-300 rounded " />
-                                             <h2 Class=" text-gray-500 font-semibold text-xs ">Repeat Password</h2>
-
-                                             <input type="password"
-                                                 class="w-4/5 bg-gray-100  mt-2  border border-solid border-gray-300 rounded " />
-
-                                         </div>
-                                         <div class=" flex item-center justify-start px-4 py-3 text-right -mt-4">
-
-                                             <button type="button"
-                                                 class="pt-1 pb-1 pl-4 pr-4 bg-primary text-white text-xs font-semibold rounded hover:bg-blue-700  "
-                                                 onclick="toggleModal2()"></i> Submit</button>
-                                         </div>
-                                 </div>
-                             </div>
-                         </div>
-
-                         </form>
 
                      </div>
                  </div>
              </div>
-
-         </div>
-         </div>
-
-         </div>
-
-         </div>
-         </div>
-         </div>
 
          </div>
          </div>
@@ -215,3 +169,11 @@
          document.getElementById('mymodal').classList.toggle('hidden')
      }
  </script>
+
+ @if (!empty(Session::get('message')) && Session::get('message') == 5)
+     <script>
+         function toggleModal2() {
+             document.getElementById('mymodal').classList.toggle('hidden')
+         }
+     </script>
+ @endif
