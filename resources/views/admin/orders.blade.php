@@ -31,7 +31,7 @@
                                                       <th scope="col">Payment Type</th>
                                                       <th scope="col">Total</th>
                                                       <th scope="col">Status</th>
-                                                      <th scope="col">Date</th>
+                                                      <th scope="col">Date & Time</th>
                                                       <th scope="col">Action</th>
 
                                                    
