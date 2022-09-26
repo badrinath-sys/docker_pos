@@ -148,10 +148,54 @@
                              </form>
 
                          </div>
+
+                         <div class="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden" id="mymodal">
+                             <div
+                                 class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                                 <div class="fixed inset-0 transition-opacity">
+                                     <div class="absolute inset-0 bg-gray-900 opacity-75" />
+                                 </div>
+                                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+                                 <div class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                                     role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                                     <form action="{{ url('admin/update/password') }}" method="post">
+                                         {{ csrf_field() }}@method('put')
+                                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+
+                                             <h2 class="border-b border-blue-100 py-2 text-gray-500 font-semibold text-lg">
+                                                 Change Password </h2>
+                                             <p class="text-green-500   mt-2 mb-2 text-xs">Create a new Secure password.
+                                             </p>
+                                             <h2 Class=" text-gray-500 font-semibold text-xs ">New Password</h2>
+
+                                             <input type="password"
+                                                 class="w-4/5 bg-gray-100  mt-2 mb-2 border border-solid border-gray-300 rounded " />
+                                             <h2 Class=" text-gray-500 font-semibold text-xs ">Repeat Password</h2>
+
+                                             <input type="password"
+                                                 class="w-4/5 bg-gray-100  mt-2  border border-solid border-gray-300 rounded " />
+
+                                         </div>
+                                         <div class=" flex item-center justify-start px-4 py-3 text-right -mt-4">
+
+                                             <button type="button"
+                                                 class="pt-1 pb-1 pl-4 pr-4 bg-primary text-white text-xs font-semibold rounded hover:bg-blue-700  "
+                                                 onclick="toggleModal2()"></i> Submit</button>
+                                         </div>
+                                 </div>
+                             </div>
+                         </div>
+
+                         </form>
+
                      </div>
                  </div>
-
              </div>
+
+         </div>
+         </div>
+
+         </div>
 
          </div>
          </div>
