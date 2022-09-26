@@ -7,8 +7,6 @@
          <p class="alert alert-info">{{ Session::get('message1') }}</p>
      @endif
 
-
-
      <main class="py-4 bg-surface-secondary">
 
          <div class="container-fluid">
@@ -19,6 +17,7 @@
                          <div class="card-body  mb-2">
 
                              <div class='flex items-center px-2 py-3'>
+
                                  <div class="w-full max-w-sm">
                                      <center>
                                          <div class="overflow-hidden relative w-20 h-20 bg-gray-100 rounded-full  ">
@@ -135,7 +134,6 @@
                                                  <input type="password"
                                                      class="w-4/5 bg-gray-100  mt-2  border border-solid border-gray-300 rounded " />
 
-
                                              </div>
                                              <div class=" flex item-center justify-start px-4 py-3 text-right -mt-4">
 
@@ -147,22 +145,17 @@
                                  </div>
                              </div>
 
-
                              </form>
 
                          </div>
                      </div>
                  </div>
 
-
-
              </div>
 
          </div>
          </div>
          </div>
-
-
 
          </div>
          </div>

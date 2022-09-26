@@ -33,7 +33,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/product/add_product', [ProductController::class, 'add_product']);
     Route::get('admin/product/{id}', [ProductController::class, 'add_product']);
     Route::post('admin/product/', [ProductController::class, 'add_product_process']);
-    Route::delete('admin/product/{id}', [ProductController::class, 'delete']);
+    Route::get('admin/product/delete/{id}', [ProductController::class, 'delete']);
 
     Route::get('admin/pos', [PosController::class, 'index']);
     Route::get('admin/search', [PosController::class, 'search'])->name('admin.search');

@@ -19,8 +19,8 @@ class OtpSendController extends Controller
         ];
 
         $request->validate([
-                  'email' => 'required|email',
-            ]);
+            'email' => 'required|email',
+        ]);
 
         $id = session()->get('ADMIN_ID');
         $result = Admin::where(['id' => $id])->first();

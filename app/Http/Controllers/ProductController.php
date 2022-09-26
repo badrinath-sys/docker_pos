@@ -97,7 +97,7 @@ class ProductController extends Controller
         if ($role == 'Admin') {
             $model = Product::find($id);
             $model->delete();
-            $request->session()->flash('message', 'product deleted');
+            $request->session()->put('message', 'product deleted');
             return redirect('admin/product');
         } else {
             return redirect('admin/product')->with('message', 'You do not have right to access this page');
