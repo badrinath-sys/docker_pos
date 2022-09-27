@@ -68,36 +68,36 @@
                                              <div class="absolute inset-0 bg-gray-900 opacity-75" />
                                          </div>
                                          <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
-                                         <div class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                                         <div class="inline-block align-center bg-white rounded-3xl text-left pl-4 overflow-hidden shadow-lg transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full lg:w-1/3"
                                              role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                                              <form action="{{ url('admin/verify/otp') }}" method="post">
                                                  {{ csrf_field() }}
                                                  <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                                     <h2 class="border-b border-blue-100 py-2 text-gray-500 font-semibold">
+                                                     <h2 class="border-b border-blue-100 py-2 text-gray-500 font-semibold text-lg">
                                                          Please
                                                          verify your e-mail address</h2>
-                                                     <p class="text-green-500 text-sm  mt-4 mb-4">Please check your e-mail
+                                                     <p class="text-green-500   mt-2 mb-2 text-xs mb-2">Please check your e-mail
                                                          account
                                                          for the verification code We just send you and enter the code in
                                                          the
                                                          below
                                                          box.</p>
-                                                     <h2 Class="text-center text-gray-500 font-semibold text-sm ">Enter OTP
+                                                     <h2 Class="text-center text-gray-500 font-semibold text-xs ">Enter OTP
                                                      </h2>
                                                      <center>
                                                          <input type="text" name='otp'
-                                                             class="w-1/3  bg-gray-100 p-2 mt-2 mb-3 border border-solid border-gray-300 rounded " />
+                                                             class="w-1/4  bg-gray-100  mt-2 mb-2 border border-solid border-gray-300 rounded " />
                                                      </center>
                                                      <a href="resend">
-                                                         <h2 Class="text-center text-primary font-semibold text-sm ">Resend
+                                                         <h2 Class="text-primary font-semibold text-xs text-center ">Resend
                                                          </h2>
                                                      </a>
                                                  </div>
                                                  <div
-                                                     class=" flex item-center justify-center bg-gray-200 px-4 py-3 text-right">
+                                                     class=" flex item-center justify-center  px-4 py-3 text-right -mt-5">
 
                                                      <button type="submit"
-                                                         class="py-2 px-4 bg-primary text-white rounded hover:bg-blue-700 mr-2"
+                                                         class="px-4 py-1 bg-primary text-white text-xs font-semibold rounded hover:bg-blue-700"
                                                          onclick="toggleModal()"></i> Ok</button>
                                                  </div>
                                              </form>
@@ -113,34 +113,34 @@
                                          <div class="absolute inset-0 bg-gray-900 opacity-75" />
                                      </div>
                                      <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
-                                     <div class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                                     <div class="inline-block align-center bg-white rounded-3xl text-left  overflow-hidden shadow-lg transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full lg:w-1/4"
                                          role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                                          <form action="{{ url('admin/update/password') }}" method="post">
                                              {{ csrf_field() }}@method('put')
                                              <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 
-                                                 <h2 class="border-b border-blue-100 py-2 text-gray-500 font-semibold">
+                                                 <h2 class="border-b border-blue-100 py-2 text-gray-500 font-semibold text-lg">
                                                      Change
                                                      Password </h2>
-                                                 <p class="text-green-500 text-sm  mt-4 mb-4">Creat a new Secure password.
+                                                 <p class="text-green-500   mt-2 mb-2 text-xs">Creat a new Secure password.
                                                  </p>
 
-                                                 <h2 Class=" text-gray-500 font-semibold text-sm ">Current Password</h2>
+                                                 <h2 Class=" text-gray-500 font-semibold text-xs ">Current Password</h2>
 
                                                  <input type="password" name='old_password'
-                                                     class="w-3/4 bg-gray-100 p-2 mt-2 mb-3 border border-solid border-gray-300 rounded "
+                                                     class="w-full bg-gray-100  mt-2 mb-2 border border-solid border-gray-300 rounded  "
                                                      required />
-                                                 <h2 Class=" text-gray-500 font-semibold text-sm ">New Password</h2>
+                                                 <h2 Class=" text-gray-500 font-semibold text-xs ">New Password</h2>
 
                                                  <input type="password" name='new_password'
-                                                     class="w-3/4 bg-gray-100 p-2 mt-2 mb-3 border border-solid border-gray-300 rounded "
+                                                     class="w-full bg-gray-100  mt-2 mb-2 border border-solid border-gray-300 rounded  "
                                                      required />
 
                                              </div>
-                                             <div class=" flex item-center justify-center bg-gray-200 px-4 py-3 text-right">
+                                             <div class=" flex item-center justify-start px-4 py-3 text-right -mt-4">
 
                                                  <button type="submit"
-                                                     class="py-2 px-4 bg-primary text-white rounded hover:bg-blue-700 mr-2"
+                                                     class="py-2 px-4  bg-primary text-white text-xs font-semibold rounded hover:bg-blue-700 "
                                                      onclick="toggleModal2()"></i>
                                                      Submit</button>
                                              </div>
