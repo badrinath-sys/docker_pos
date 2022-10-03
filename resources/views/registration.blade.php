@@ -6,17 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REGISTRATION</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"> </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"> </script>
+        
+  
 </head>
 
 <style>
@@ -242,7 +237,7 @@
                                                                         <div class="form-group">
                                                                             <label>User Name </label>
                                                                             <input
-                                                                                class=" border rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none focus:shadow-outline "
+                                                                                class=" border rounded w-full py-2 px-3 text-gray-700  placeholder-gray-300  leading-tight  focus:outline-none focus:shadow-outline "
                                                                                 id="username" type="text"
                                                                                 placeholder="Username">
                                                                         </div>
@@ -252,7 +247,7 @@
                                                                         <div class="form-group">
                                                                             <label>Email Address </label>
                                                                             <input
-                                                                                class="border rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none focus:shadow-outline"
+                                                                                class="border rounded w-full py-2 px-3 text-gray-700   placeholder-gray-300 leading-tight  focus:outline-none focus:shadow-outline"
                                                                                 type="email" name="name"
                                                                                 placeholder="Email id">
                                                                         </div>
@@ -294,7 +289,7 @@
                                                                         <div class="form-group">
 
                                                                             <input
-                                                                                class="border rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none focus:shadow-outline"
+                                                                                class="border rounded w-full py-2 px-3 text-gray-700  placeholder-gray-300  leading-tight  focus:outline-none focus:shadow-outline"
                                                                                 type="number" name="OTP"
                                                                                 placeholder="Enter verification code">
                                                                         </div>
@@ -315,7 +310,7 @@
                                                                         <div class="form-group">
                                                                             <label>Name </label>
                                                                             <input
-                                                                                class=" border rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none focus:shadow-outline "
+                                                                                class=" border rounded w-full py-2 px-3 text-gray-700  placeholder-gray-300  leading-tight  focus:outline-none focus:shadow-outline "
                                                                                 id="username" type="text"
                                                                                 placeholder="Username">
                                                                         </div>
@@ -325,7 +320,7 @@
                                                                         <div class="form-group">
                                                                             <label>Company Name </label>
                                                                             <input
-                                                                                class="border rounded w-full py-2 px-3 text-gray-700 leading-tight  focus:outline-none focus:shadow-outline"
+                                                                                class="border rounded w-full py-2 px-3 text-gray-700  placeholder-gray-300  leading-tight  focus:outline-none focus:shadow-outline"
                                                                                 type="text" name="name"
                                                                                 placeholder="Name">
                                                                         </div>
