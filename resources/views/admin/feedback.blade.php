@@ -1,11 +1,10 @@
   @extends('admin/layout')
   @section('container')
-
       @if (Session::has('message'))
           <p class="alert alert-info">{{ Session::get('message') }}</p>
       @endif
 
-      <form action="{{ route('admin.order_search') }}" method="get">
+      <form action="" method="get">
           <div class="input-group relative flex flex-wrap items-stretch w-1/2 mb-1 pt-8 ml-6">
               <input type="search"
                   class="form-control relative flex-auto min-w-0 block w-1/2 px-3 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -23,32 +22,15 @@
                           <table class="table table-hover table-nowrap">
                               <thead class="thead-light">
                                   <tr>
-                                      <th scope="col">Order ID</th>
-                                      <th scope="col">Customer Name</th>
-                                      <th scope="col">Payment Type</th>
-                                      <th scope="col">Total</th>
+                                      <th scope="col">ID</th>
+                                      <th scope="col">Staff Name</th>
                                       <th scope="col">Order Id</th>
-                                      <th scope="col">Status</th>
+                                      <th scope="col">Feedback</th>
                                       <th scope="col">Date & Time</th>
                                       <th scope="col">Action</th>
 
                                   </tr>
                               </thead>
-                              <tbody>
-                                  @if (!empty($item))
-                                      @foreach ($item as $item)
-                                          <tr>
-                                              <td></td>
-                                              <td>{{ $item['name'] }}</td>
-                                              <td>{{ $item['payment_type'] }}</td>
-                                              <td>{{ $item['amount'] }}</td>
-                                              <td>{{ $item['status'] }}</td>
-                                              <td>{{ $item['created_at'] }}</td>
-
-                                          </tr>
-                                      @endforeach
-                                  @endif
-                              </tbody>
 
                               <tbody>
                                   <tr>
@@ -58,25 +40,27 @@
                                               {{ $i++ }}
                                           </td>
                                           <td>
-                                              {{ $list['name'] }}
+                                              {{ $list['staff_name'] }}
                                           </td>
                                           <td>
-                                              {{ $list['payment_type'] }}
+                                              {{ $list['order_id'] }}
                                           </td>
-                                          <td>₹{{ $list['amount'] }}
+                                          <td>
+                                              @if ($list['feedback'] == 'Good')
+                                                  <p class="text-green-400 font-bold"> {{ $list['feedback'] }}</p>
+                                              @elseif($list['feedback'] == 'Average')
+                                                  <p class="text-yellow-400 font-bold"> {{ $list['feedback'] }}</p>
+                                              @else
+                                                  <p class="text-red-400 font-bold"> {{ $list['feedback'] }}</p>
+                                              @endif
 
                                           </td>
-                                          <td>{{ $list['order_id'] }}
 
-                                          </td>
-                                          <td class="text-green-400 font-bold">{{ $list['status'] }}
-
-                                          </td>
                                           <td class="text-primary">{{ $list['created_at'] }}
 
                                           </td>
                                           <td>
-                                              <a href="{{ url('admin/order/delete/') }}/{{ $list->id }}">
+                                              <a href="{{ url('admin/feedback/delete/') }}/{{ $list->id }}">
                                                   <div>
                                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                           viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"

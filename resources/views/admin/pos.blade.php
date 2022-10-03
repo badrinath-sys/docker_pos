@@ -11,16 +11,18 @@
                     class="form-control relative flex-auto min-w-0 block w-1/2 px-3 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     placeholder="Search" aria-label="Search" aria-describedby="button-addon2" name="search">
             </div>
-            @if (!empty($item))
-                @foreach ($item as $list)
-                    @if ($list->image != '')
-                        <a onclick="toggleModal1()">
+            <div class="ml-6">
+                @if (!empty($item))
+                    @foreach ($item as $list)
+                        @if ($list->image != '')
+                            <a onclick="toggleModal1()">
 
-                            <img width="60px" src="{{ asset('storage/media/' . $list->image) }}"
-                                style=" display:inline-flex" /></a>
-                    @endif
-                @endforeach
-            @endif
+                                <img width="60px" src="{{ asset('storage/media/' . $list->image) }}"
+                                    style=" display:inline-flex" /></a>
+                        @endif
+                    @endforeach
+                @endif
+            </div>
         </form>
         <div class="container-fluid">
             <div class="row g-6 mb-4 ">
@@ -54,8 +56,9 @@
                                             <tbody> @php $total = 0 @endphp
                                                 @if (session('cart'))
                                                     @foreach (session('cart') as $id => $details)
-                                                        @php$total += $details['price'] * $details['quantity'];
-                                                                                                                @endphp ?>
+                                                        @php
+                                                            $total += $details['price'] * $details['quantity'];
+                                                        @endphp
                                                         <tr>
                                                             <td> <a class="text-heading font-semibold" href="#">
                                                                     {{ $details['name'] }}
@@ -152,6 +155,29 @@
                                                             <option value="Gpay">Gpay</option>
                                                             <option value="PhonePay">Phonepay</option>
                                                             <option value="Cash">Cash</option>
+                                                        </select>
+                                                        <label>Feedback</label>
+                                                        <select
+                                                            class="form-select appearance-none
+                                          block
+                                          w-full
+                                          px-3
+                                          py-1.5
+                                          text-base
+                                          font-normal
+                                          text-gray-700
+                                          bg-white bg-clip-padding bg-no-repeat
+                                          border border-solid border-gray-300
+                                          rounded
+                                          transition
+                                          ease-in-out
+                                          mt-2
+                                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                                            name="feedback" aria-label="Default select example">
+                                                            <option selected>Feedback Option</option>
+                                                            <option value="Good">Good</option>
+                                                            <option value="Average">Average</option>
+                                                            <option value="Poor">Poor</option>
                                                         </select>
                                                     </div>
                                                     <div class="px-4 py-3 text-right">

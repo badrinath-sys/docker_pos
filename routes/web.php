@@ -8,7 +8,10 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OtpSendController;
 use App\Http\Controllers\PosController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FeedbackController;
+
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +50,11 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/order', [OrderController::class, 'index']);
     Route::get('admin/order/delete/{id}', [OrderController::class, 'delete']);
     Route::get('admin/order/search', [OrderController::class, 'search'])->name('admin.order_search');
+
+    Route::get('admin/feedback', [FeedbackController::class, 'index']);
+    Route::get('admin/feedback/delete/{id}', [FeedbackController::class, 'delete']);
+
+
 
     Route::get('admin/dashboard', [DashboardController::class, 'totalSales']);
 
