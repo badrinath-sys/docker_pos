@@ -27,9 +27,10 @@ Route::get('/', function () {
 
 Route::get('/registration', function () {
 
-    return view('registration');
+    return view('OTP');
 
 });
+
 
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');
