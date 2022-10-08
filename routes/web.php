@@ -27,10 +27,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/registration', [RegisterController::class, 'index']);
-Route::post('/registration', [RegisterController::class, 'register']);
+
 Route::get('/sendotp', [RegisterController::class, 'sendOtp']);
 Route::get('/verify/otp', [RegisterController::class, 'verifyOtp']);
+Route::get('/registration', function () {
+
+    return view('OTP');
+
+});
+
 
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');
