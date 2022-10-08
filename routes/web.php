@@ -4,14 +4,13 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OtpSendController;
 use App\Http\Controllers\PosController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\FeedbackController;
-
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -28,11 +27,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/registration', function () {
-
-    return view('registration');
-
-});
+Route::get('/registration', [RegisterController::class, 'index']);
+Route::post('/registration', [RegisterController::class, 'register']);
+Route::get('/sendotp', [RegisterController::class, 'sendOtp']);
+Route::get('/verify/otp', [RegisterController::class, 'verifyOtp']);
 
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');
@@ -60,8 +58,6 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/feedback', [FeedbackController::class, 'index']);
     Route::get('admin/feedback/delete/{id}', [FeedbackController::class, 'delete']);
-
-
 
     Route::get('admin/dashboard', [DashboardController::class, 'totalSales']);
 
