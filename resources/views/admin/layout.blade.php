@@ -67,6 +67,13 @@
                                 </a>
                             </li>
                         @endif
+                        @if (Session('role') == 'Admin')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('admin/invite') }}">
+                                    <i class="bi bi-person-square"></i> Invite
+                                </a>
+                            </li>
+                        @endif
                     </ul>
 
                     <hr class="navbar-divider my-5 opacity-80">

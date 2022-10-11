@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\InviteController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OtpSendController;
 use App\Http\Controllers\PosController;
@@ -27,15 +28,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/sendotp', [RegisterController::class, 'sendOtp']);
-Route::get('/verify/otp', [RegisterController::class, 'verifyOtp']);
+Route::post('/sendotp', [RegisterController::class, 'sendOtp']);
+Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/verify/otp', [RegisterController::class, 'verifyOtp']);
 Route::get('/registration', function () {
 
-    return view('OTP');
+    return view('registration');
 
 });
-
 
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');
@@ -63,6 +63,10 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/feedback', [FeedbackController::class, 'index']);
     Route::get('admin/feedback/delete/{id}', [FeedbackController::class, 'delete']);
+
+    Route::get('admin/invite', [InviteController::class, 'index']);
+    Route::post('admin/send/invitation', [InviteController::class, 'sendInvitation']);
+    Route::get('admin/verify/user/{id}', [InviteController::class, 'verify']);
 
     Route::get('admin/dashboard', [DashboardController::class, 'totalSales']);
 

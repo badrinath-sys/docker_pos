@@ -6,6 +6,7 @@ use App\Mail\OtpSendMail;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Mail;
 
 class RegisterController extends Controller
@@ -17,48 +18,54 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        session(["email" => $request->email]);
-
         $model = new Admin;
-        $model->username = $request->username;
-        $model->email = $request->email;
-        if ($model->email) {
-            $data = [
-                'email' => $request->email,
-                'otp' => session(mt_rand(10000, 99999)),
-            ];
-            Mail::to($request->email)->send(new OtpSendMail($data));
+        $model->username = session("username");
+        $model->email = session("email");
+        $model->password = Hash::make(session("password"));
+        $model->company_name = $request->company_name;
+        $model->company_type = $request->company_type;
 
+        $result = Admin::count();
+        if ($result == 0) {
+            $model->role = "Admin";
+        } else {
+            $model->role = "Staff";
         }
-        $model->otp = 12345;
-        $model->role = "staff";
-        return redirect()->back();
-
-        $model->password = Hash::make($request->get('password'));
         $model->save();
+
+        return redirect("/admin")->with("message", "Registration successfully completed");
 
     }
 
-    public function sendotp()
+    public function sendotp(Request $request)
     {
+        session(["email" => $request->email]);
+        session(["username" => $request->username]);
+        session(["password" => $request->password]);
+        session(["otp" => mt_rand(10000, 99999)]);
+
         $data = [
             'email' => session("email"),
-            'otp' => session(mt_rand(10000, 99999)),
+            'username' => session("username"),
+            'password' => session("password"),
+            'otp' => session("otp"),
         ];
 
-        Mail::to(session("email"))->send(new OtpSendMail($data));
-        return Redirect::to('registration', '#step2');
+        Mail::to($request)->send(new OtpSendMail($data));
+        return view('otp')->with('message', 'Otp sent to your mail');
 
     }
 
     public function verifyOtp(Request $request)
     {
+        if ($request->otp == session("otp")) {
+            $request->session()->flash('message', 'Otp verified');
 
-        if ($request->otp = session("otp")) {
-            return redirect()->to(app('url')->previous() . "#form1");
+            return view('Customizeform');
 
         } else {
-            return redirect()->back()->with('message1', 'Please enter correct otp');
+            $request->session()->flash('message', 'Please enter correct otp');
+            return view('otp');
         }
 
     }

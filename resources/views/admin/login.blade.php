@@ -32,6 +32,9 @@
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
+                @if (Session::has('message'))
+                    <p class="alert alert-info">{{ Session::get('message') }}</p>
+                @endif
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
