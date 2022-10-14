@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('username');
             $table->string('email');
             $table->string('password');
-            $table->bigInteger('otp');
+            $table->bigInteger('otp')->default(null);
             $table->string('role');
+            $table->string('company_name');
+            $table->string('company_type');
             $table->timestamps();
 
         });

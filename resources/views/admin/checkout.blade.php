@@ -9,7 +9,6 @@
         <input type="text" class="w-full bg-gray-100 p-2 mt-2 mb-3 border border-solid border-gray-300 rounded  "
             name="name" />
 
-
         <label>Amount</label>
         <input type="text" class="w-full bg-gray-100 p-2 mt-2 mb-3 border border-solid border-gray-300 rounded"
             value="₹{{ $total }}" name="amount" />
@@ -38,8 +37,6 @@
             <option value="3">Cash</option>
         </select>
     </div>
-
-
 
     <button type="button" class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2"
         onclick="toggleModal()"><i class="fas fa-times"></i> Cancel</button>

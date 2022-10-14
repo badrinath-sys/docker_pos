@@ -22,6 +22,7 @@ class RegisterController extends Controller
         $model->username = session("username");
         $model->email = session("email");
         $model->password = Hash::make(session("password"));
+        $model->otp = session('otp');
         $model->company_name = $request->company_name;
         $model->company_type = $request->company_type;
 
@@ -32,6 +33,8 @@ class RegisterController extends Controller
             $model->role = "Staff";
         }
         $model->save();
+
+        session()->flush();
 
         return redirect("/admin")->with("message", "Registration successfully completed");
 
