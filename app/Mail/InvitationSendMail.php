@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class OtpSendMail extends Mailable
+class InvitationSendMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,7 +17,7 @@ class OtpSendMail extends Mailable
      */
     public function __construct($data)
     {
-        $this->email_data = $data;
+        $this->email = $data;
 
     }
 
@@ -28,7 +28,7 @@ class OtpSendMail extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_USERNAME'), 'Pallam Badrinath')->subject("Your Otp!")->view('admin.update_mail', ['email_data' => $this->email_data]);
+        return $this->from(env('MAIL_USERNAME'), 'Pallam Badrinath')->subject("Your invitation link for Registration")->view('admin.invitation', ['email' => $this->email]);
 
     }
 }

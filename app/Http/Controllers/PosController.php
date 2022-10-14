@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Customer;
+use App\Models\Feedback;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -64,6 +66,8 @@ class PosController extends Controller
 
     public function checkoutOrder(Request $request)
     {
+        $order_id = mt_rand(10000, 99999);
+
         $model = new Customer;
         $model->name = $request->name;
         $model->mobile = $request->mobile;
@@ -72,8 +76,18 @@ class PosController extends Controller
         $model = new Order;
         $model->name = $request->name;
         $model->amount = filter_var(str_replace(",", "", $request->amount), FILTER_SANITIZE_NUMBER_INT);
+        $model->order_id = $order_id;
         $model->payment_type = $request->payment_type;
         $model->status = "completed";
+        $model->save();
+
+        $id = session()->get('ADMIN_ID');
+        $result = Admin::where(['id' => $id])->first();
+
+        $model = new Feedback;
+        $model->staff_name = $result['username'];
+        $model->order_id = $order_id;
+        $model->feedback = $request->feedback;
         $model->save();
 
         $request->session()->forget('cart');

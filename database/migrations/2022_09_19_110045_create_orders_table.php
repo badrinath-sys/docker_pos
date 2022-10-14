@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('amount');
+            $table->string('order_id');
             $table->string('payment_type');
             $table->string('status');
             $table->timestamps();

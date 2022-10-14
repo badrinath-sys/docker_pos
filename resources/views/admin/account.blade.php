@@ -73,10 +73,12 @@
                                              <form action="{{ url('admin/verify/otp') }}" method="post">
                                                  {{ csrf_field() }}
                                                  <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                                     <h2 class="border-b border-blue-100 py-2 text-gray-500 font-semibold text-lg">
+                                                     <h2
+                                                         class="border-b border-blue-100 py-2 text-gray-500 font-semibold text-lg">
                                                          Please
                                                          verify your e-mail address</h2>
-                                                     <p class="text-green-500   mt-2 mb-2 text-xs mb-2">Please check your e-mail
+                                                     <p class="text-green-500   mt-2 mb-2 text-xs mb-2">Please check your
+                                                         e-mail
                                                          account
                                                          for the verification code We just send you and enter the code in
                                                          the
@@ -93,8 +95,7 @@
                                                          </h2>
                                                      </a>
                                                  </div>
-                                                 <div
-                                                     class=" flex item-center justify-center  px-4 py-3 text-right -mt-5">
+                                                 <div class=" flex item-center justify-center  px-4 py-3 text-right -mt-5">
 
                                                      <button type="submit"
                                                          class="px-4 py-1 bg-primary text-white text-xs font-semibold rounded hover:bg-blue-700"
@@ -119,7 +120,8 @@
                                              {{ csrf_field() }}@method('put')
                                              <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 
-                                                 <h2 class="border-b border-blue-100 py-2 text-gray-500 font-semibold text-lg">
+                                                 <h2
+                                                     class="border-b border-blue-100 py-2 text-gray-500 font-semibold text-lg">
                                                      Change
                                                      Password </h2>
                                                  <p class="text-green-500   mt-2 mb-2 text-xs">Creat a new Secure password.
@@ -169,11 +171,3 @@
          document.getElementById('mymodal').classList.toggle('hidden')
      }
  </script>
-
- @if (!empty(Session::get('message')) && Session::get('message') == 5)
-     <script>
-         function toggleModal2() {
-             document.getElementById('mymodal').classList.toggle('hidden')
-         }
-     </script>
- @endif
